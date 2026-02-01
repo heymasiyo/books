@@ -6,7 +6,10 @@ import { cn } from "@/lib/utils";
 import { fontVariables } from "@/styles/fonts";
 
 export const metadata: Metadata = {
-  title: "Books",
+  title: {
+    default: "Books",
+    template: "%s | Books",
+  },
   description: "The open source accounting app built for simplicity.",
 };
 
