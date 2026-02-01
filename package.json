@@ -7,12 +7,21 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "format": "prettier --write \"**/*.{js,mjs,ts,tsx,md,mdx}\""
+    "format": "prettier --write \"**/*.{js,mjs,ts,tsx,md,mdx}\"",
+    "docker:up": "docker compose -f docker-compose.yml up -d",
+    "docker:stop": "docker compose -f docker-compose.yml stop",
+    "docker:down": "docker compose -f docker-compose.yml down",
+    "docker:clean": "docker compose -f docker-compose.yml down -v"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.563.0",
     "next": "16.1.6",
+    "next-themes": "^0.4.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -26,6 +35,7 @@
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4",
+    "tw-animate-css": "^1.4.0",
     "typescript": "^5"
   }
 }
