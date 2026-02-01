@@ -18,11 +18,11 @@ export function SiteHeader() {
         <div className="flex grow basis-0 justify-end gap-4">
           <div className="flex w-fit gap-2">
             <Button asChild variant="outline" size="sm">
-              <Link href="/auth/login">Log in</Link>
+              <Link href="/login">Log in</Link>
             </Button>
 
             <Button asChild size="sm">
-              <Link href="/auth/register">Sign up</Link>
+              <Link href="/register">Sign up</Link>
             </Button>
           </div>
         </div>

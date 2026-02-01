@@ -1,4 +1,4 @@
-import { SiteHeader } from "@/components/marketing/site-header";
+import { SiteHeader } from "@/components/marketing/layout/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export default function MarketingLayout({

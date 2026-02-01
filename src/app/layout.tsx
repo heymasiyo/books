@@ -7,10 +7,11 @@ import { fontVariables } from "@/styles/fonts";
 
 export const metadata: Metadata = {
   title: {
-    default: "Books",
+    default: "Books - The Modern Accounting System",
     template: "%s | Books",
   },
-  description: "The open source accounting app built for simplicity.",
+  description:
+    "Books is the modern accounting platform that simplifies invoicing, expense tracking, and financial reporting in one place.",
 };
 
 export default function RootLayout({

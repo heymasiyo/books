@@ -37,7 +37,7 @@ export function HomeHero() {
 
         <div className="mt-10 flex w-fit gap-4">
           <Button asChild className="h-auto">
-            <Link href="/auth/register">Start free trial</Link>
+            <Link href="/register">Start free trial</Link>
           </Button>
 
           <Button
