@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 export default function AppLayout({
   children,
@@ -13,6 +14,8 @@ export default function AppLayout({
       disableTransitionOnChange
     >
       {children}
+
+      <Toaster richColors position="top-right" />
     </ThemeProvider>
   );
 }
