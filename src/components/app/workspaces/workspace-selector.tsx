@@ -1,7 +1,7 @@
+import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
 
-import { useWorkspaces } from "@/lib/swr/use-workspaces";
-
+import { CreateWorkspace } from "@/components/app/workspaces/create-workspace";
 import {
   Item,
   ItemActions,
@@ -9,7 +9,7 @@ import {
   ItemDescription,
   ItemTitle,
 } from "@/components/ui/item";
-import { ChevronRightIcon } from "lucide-react";
+import { useWorkspaces } from "@/lib/swr/use-workspaces";
 
 export function WorkspaceSelector() {
   const { workspaces } = useWorkspaces();
@@ -38,6 +38,8 @@ export function WorkspaceSelector() {
           </Link>
         </Item>
       ))}
+
+      <CreateWorkspace />
     </div>
   );
 }

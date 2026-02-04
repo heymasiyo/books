@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { WorkspaceSelector } from "@/components/app/auth/workspace-selector";
+import { WorkspaceSelector } from "@/components/app/workspaces/workspace-selector";
 
 export const metadata: Metadata = {
   title: "Choose your workspace",
