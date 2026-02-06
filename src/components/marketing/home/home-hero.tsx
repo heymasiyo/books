@@ -63,7 +63,7 @@ export function HomeHero() {
             <Button
               asChild
               variant="outline"
-              className="text-muted-foreground h-auto"
+              className="text-muted-foreground bg-background! h-auto"
             >
               <Link href="#">Get a demo</Link>
             </Button>

@@ -5,7 +5,7 @@ export function AuthSeparator() {
         <span className="w-full border-t" />
       </div>
       <div className="relative flex justify-center text-xs uppercase">
-        <span className="bg-card text-muted-foreground px-2 font-medium">
+        <span className="bg-background text-muted-foreground px-2 font-medium">
           or
         </span>
       </div>

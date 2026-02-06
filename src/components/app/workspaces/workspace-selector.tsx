@@ -23,14 +23,14 @@ export function WorkspaceSelector() {
           asChild
           key={workspace.id}
           variant="outline"
-          className="rounded-lg"
+          className="bg-background! hover:ring-ring/50 rounded-lg hover:ring-3"
         >
           <Link href={`/dashboard/${workspace.slug}`}>
             <ItemContent>
               <ItemTitle>{workspace.name}</ItemTitle>
 
-              <ItemDescription className="text-xs">
-                {workspace.plan_formatted} · {workspace.total_members} Member
+              <ItemDescription className="text-xs capitalize">
+                {workspace.plan} · {workspace.total_members} member
               </ItemDescription>
             </ItemContent>
 

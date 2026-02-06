@@ -79,7 +79,7 @@ export function CreateWorkspace({
           <DialogDescription />
         </DialogHeader>
 
-        <div className="flex flex-col items-center justify-center space-y-3 border-b px-4 py-4 pt-8 sm:px-16">
+        <div className="flex flex-col items-center justify-center space-y-3 rounded-tl-2xl rounded-tr-2xl border-b px-4 py-4 pt-8 sm:px-16">
           <div className="bg-background border-foreground pointer-events-none size-10 rounded-full border-10" />
 
           <h3 className="text-lg font-medium">Create a workspace</h3>
@@ -96,7 +96,7 @@ export function CreateWorkspace({
           </p>
         </div>
 
-        <div className="bg-muted rounded-br-2xl rounded-bl-2xl px-4 py-8 sm:px-16">
+        <div className="bg-muted/50 rounded-br-2xl rounded-bl-2xl px-4 py-8 sm:px-16">
           <form
             id="form"
             onSubmit={form.handleSubmit(submit)}

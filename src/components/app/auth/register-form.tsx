@@ -52,7 +52,12 @@ export function RegisterForm() {
 
   return (
     <div className="flex flex-col gap-3">
-      <Button type="button" variant="outline" disabled={isLoading}>
+      <Button
+        type="button"
+        variant="outline"
+        disabled={isLoading}
+        className="bg-background! hover:ring-ring/50 hover:ring-3"
+      >
         <Icons.google />
         Continue with Google
       </Button>

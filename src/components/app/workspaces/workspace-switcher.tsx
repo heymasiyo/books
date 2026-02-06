@@ -2,7 +2,8 @@
 
 import { Check, ChevronsUpDown, Settings, UserPlus2 } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { useMemo } from "react";
 
 import { CreateWorkspace } from "@/components/app/workspaces/create-workspace";
 import { PlanColor } from "@/components/app/workspaces/plan-color";
@@ -25,10 +26,15 @@ import { useWorkspaces } from "@/lib/swr/use-workspaces";
 import { cn } from "@/lib/utils";
 
 export function WorkspaceSwitcher() {
+  const router = useRouter();
+  const params = useParams<{ slug: string }>();
+
   const { isMobile } = useSidebar();
   const { workspaces } = useWorkspaces();
 
-  const [activeWorkspace, setActiveWorkspace] = useState(workspaces[0]);
+  const activeWorkspace = useMemo(() => {
+    return workspaces.find((workspace) => workspace.slug === params.slug);
+  }, [workspaces, params.slug]);
 
   if (!activeWorkspace) return null;
 
@@ -87,7 +93,7 @@ export function WorkspaceSwitcher() {
                 </div>
               </div>
 
-              <div className="flex flex-row gap-1">
+              <div className="flex flex-row gap-1.5">
                 <Button
                   variant="outline"
                   size="sm"
@@ -124,7 +130,7 @@ export function WorkspaceSwitcher() {
               {workspaces.map((workspace) => (
                 <DropdownMenuItem
                   key={workspace.id}
-                  onClick={() => setActiveWorkspace(workspace)}
+                  onClick={() => router.push(`/dashboard/${workspace.slug}`)}
                   className={cn(
                     "cursor-pointer py-2",
                     workspace.id === activeWorkspace.id && "bg-accent"

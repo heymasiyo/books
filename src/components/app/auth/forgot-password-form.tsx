@@ -83,7 +83,12 @@ export function ForgotPasswordForm() {
             Send reset link
           </Button>
 
-          <Button type="button" variant="outline" asChild>
+          <Button
+            type="button"
+            variant="outline"
+            asChild
+            className="bg-background! hover:ring-ring/50 hover:ring-3"
+          >
             <Link href="/login">Back to Log in</Link>
           </Button>
         </div>
