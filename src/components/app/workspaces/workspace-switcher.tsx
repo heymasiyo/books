@@ -73,7 +73,7 @@ export function WorkspaceSwitcher() {
             side={isMobile ? "bottom" : "right"}
             sideOffset={4}
           >
-            <div className="flex flex-col gap-2.5 px-2 pb-2 sm:p-2">
+            <div className="flex flex-col gap-2.5 px-2 pt-1 pb-2 sm:p-2">
               <div className="flex items-center gap-x-2.5">
                 <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-7 items-center justify-center rounded-md">
                   <div className="text-sm leading-none font-semibold uppercase">

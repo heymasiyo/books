@@ -30,6 +30,7 @@ import {
   SidebarMenuSubItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { useWorkspaceSlug } from "@/lib/hooks/use-workspace-slug";
 import type {
   NavCollapsible,
   NavGroup as NavGroupProps,
@@ -40,11 +41,10 @@ import { cn } from "@/lib/utils";
 
 export function NavGroup({ title, items }: NavGroupProps) {
   const { state, isMobile } = useSidebar();
+  const { withWorkspaceSlug } = useWorkspaceSlug();
 
   const pathname = usePathname();
   const searchParams = useSearchParams();
-
-  const workspaceSlug = getWorkspaceSlug(pathname);
 
   const href = searchParams?.toString()
     ? `${pathname}?${searchParams.toString()}`
@@ -59,12 +59,10 @@ export function NavGroup({ title, items }: NavGroupProps) {
 
           const resolvedItem = {
             ...item,
-            url: item.url
-              ? withWorkspaceSlug(item.url, workspaceSlug)
-              : undefined,
+            url: item.url ? withWorkspaceSlug(item.url) : undefined,
             items: item.items?.map((sub) => ({
               ...sub,
-              url: withWorkspaceSlug(sub.url, workspaceSlug),
+              url: withWorkspaceSlug(sub.url),
             })),
           };
 
@@ -253,26 +251,4 @@ function checkIsActive(
   }
 
   return false;
-}
-
-function getWorkspaceSlug(pathname: string) {
-  const segments = pathname.split("/").filter(Boolean);
-
-  if (segments[0] !== "dashboard") return null;
-
-  if (segments.length < 2) return null;
-
-  return segments[1];
-}
-
-function withWorkspaceSlug(url: string, workspaceSlug: string | null) {
-  if (!workspaceSlug) return url;
-
-  const segments = url.split("/").filter(Boolean);
-
-  if (segments[0] !== "dashboard") return url;
-
-  segments.shift();
-
-  return `/dashboard/${workspaceSlug}/${segments.join("/")}`;
 }

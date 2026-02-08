@@ -1,3 +1,4 @@
+import { AppHeader } from "@/components/app/layout/app-header";
 import { AppSidebar } from "@/components/app/layout/app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
@@ -10,7 +11,11 @@ export default function DashboardLayout({
     <SidebarProvider>
       <AppSidebar />
 
-      <SidebarInset>{children}</SidebarInset>
+      <SidebarInset>
+        <AppHeader />
+
+        <div className="flex flex-1 flex-col">{children}</div>
+      </SidebarInset>
     </SidebarProvider>
   );
 }

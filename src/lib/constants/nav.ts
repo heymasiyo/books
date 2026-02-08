@@ -6,6 +6,7 @@ import {
   DollarSign,
   Home,
   Package,
+  PieChart,
   Settings,
   ShoppingBag,
   ShoppingCart,
@@ -38,7 +39,7 @@ export const MAIN_NAV: NavData = {
             {
               title: "Overview",
               url: "/dashboard/sales",
-              icon: Tag,
+              icon: PieChart,
             },
             {
               title: "Invoices",
@@ -69,7 +70,7 @@ export const MAIN_NAV: NavData = {
             {
               title: "Overview",
               url: "/dashboard/purchases",
-              icon: Tag,
+              icon: PieChart,
             },
             {
               title: "Invoices",
