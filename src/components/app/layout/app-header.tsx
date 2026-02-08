@@ -3,9 +3,15 @@
 import { CreditCard, ShoppingBag, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
+import { UserDropdown } from "@/components/app/layout/user-dropdown";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { useWorkspaceSlug } from "@/lib/hooks/use-workspace-slug";
 
 export function AppHeader() {
@@ -34,16 +40,28 @@ export function AppHeader() {
                 Sell
               </Link>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="icon"
-              className="flex size-8 lg:hidden"
-            >
-              <Link href={withWorkspaceSlug("/dashboard/sales/invoices/add")}>
-                <ShoppingCart />
-              </Link>
-            </Button>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="icon"
+                  className="flex size-8 lg:hidden"
+                  aria-label="Sell"
+                >
+                  <Link
+                    href={withWorkspaceSlug("/dashboard/sales/invoices/add")}
+                  >
+                    <ShoppingCart />
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+
+              <TooltipContent>
+                <p>Sell</p>
+              </TooltipContent>
+            </Tooltip>
 
             <Button
               asChild
@@ -58,18 +76,30 @@ export function AppHeader() {
                 Buy
               </Link>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="icon"
-              className="flex size-8 lg:hidden"
-            >
-              <Link
-                href={withWorkspaceSlug("/dashboard/purchases/invoices/add")}
-              >
-                <ShoppingBag />
-              </Link>
-            </Button>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="icon"
+                  className="flex size-8 lg:hidden"
+                  aria-label="Buy"
+                >
+                  <Link
+                    href={withWorkspaceSlug(
+                      "/dashboard/purchases/invoices/add"
+                    )}
+                  >
+                    <ShoppingBag />
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+
+              <TooltipContent>
+                <p>Buy</p>
+              </TooltipContent>
+            </Tooltip>
 
             <Button
               asChild
@@ -82,17 +112,31 @@ export function AppHeader() {
                 Expenses
               </Link>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="icon"
-              className="flex size-8 lg:hidden"
-            >
-              <Link href={withWorkspaceSlug("/dashboard/expenses/add")}>
-                <CreditCard />
-              </Link>
-            </Button>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="icon"
+                  className="flex size-8 lg:hidden"
+                  aria-label="Expenses"
+                >
+                  <Link href={withWorkspaceSlug("/dashboard/expenses/add")}>
+                    <CreditCard />
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+
+              <TooltipContent>
+                <p>Expenses</p>
+              </TooltipContent>
+            </Tooltip>
           </div>
+        </div>
+
+        <div className="flex items-center justify-end gap-3">
+          <UserDropdown />
         </div>
       </div>
     </header>
